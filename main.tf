@@ -3,6 +3,11 @@ resource "aws_acm_certificate" "pscloud-acm-cert" {
   domain_name                 = var.pscloud_domain_name
   validation_method           = "DNS"
   subject_alternative_names   = var.pscloud_subject_alternative_names
+
+  tags = {
+    Name = "${var.pscloud_company}_acm_cert_${var.pscloud_env}"
+    Purpouse = "cert-for-${var.pscloud_domain_name}"
+  }
 }
 
 resource "aws_route53_record" "pscloud-r53-record" {
