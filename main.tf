@@ -6,7 +6,7 @@ resource "aws_acm_certificate" "pscloud-acm-cert" {
 
   tags = {
     Name = "${var.pscloud_company}_acm_cert_${var.pscloud_env}"
-    Purpouse = "cert-for-${var.pscloud_domain_name}"
+    Purpouse = "cert_for_${var.pscloud_domain_name}"
   }
 }
 
